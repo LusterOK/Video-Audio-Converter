@@ -33,7 +33,7 @@
 
 ### Запустить из исходников
 ```bash
-git clone [https://github.com/Guavvva/Video-Audio-Converter.git](https://github.com/Guavvva/Video-Audio-Converter.git)
+git clone https://github.com/Guavvva/Video-Audio-Converter.git
 cd Video-Audio-Converter
 pip install PySide6
 python main.py
@@ -112,7 +112,7 @@ A simple program for converting audio and video files. Powered by FFmpeg.
 ### Run from source
 
 ```bash
-git clone [https://github.com/Guavvva/Video-Audio-Converter.git](https://github.com/Guavvva/Video-Audio-Converter.git)
+git clone https://github.com/Guavvva/Video-Audio-Converter.git
 cd Video-Audio-Converter
 pip install PySide6
 python main.py

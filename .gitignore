@@ -1,29 +1,29 @@
-# Python
+# Python bytecode & cache
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-*.egg-info/
-dist/
-build/
-*.spec
+*.py[cod]
+*$py.class
 
-# IDE
+# Virtual environments (если будете создавать venv)
+venv/
+env/
+.venv/
+
+# IDE files
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Project specific
-*.exe
-*.log
-*.txt
-!requirements.txt
-!README.txt
-!.gitignore
+# PyInstaller / Build files
+build/
+dist/
+*.spec
+
+# Settings & Local data
+*.ini
+*.sqlite3
+
+# Media output test files (чтобы случайно не загрузить видео на гиты)
+*.mp4
+*.mkv
+*.avi
+*.mp3
+*.wav

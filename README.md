@@ -105,7 +105,7 @@ A simple program for converting audio and video files. Powered by FFmpeg.
 
 ### Download ready-to-use EXE
 
-1. Go to [Releases](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/Guavvva/Video-Audio-Converter/releases)
+1. Go to [Releases](https://github.com/Guavvva/Video-Audio-Converter/releases)
 2. Download `Converter.exe`
 3. Run it (no installation needed)
 

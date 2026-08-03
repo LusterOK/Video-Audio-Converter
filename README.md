@@ -27,13 +27,13 @@
 ## Как использовать
 
 ### Скачать готовую программу
-1. Идите в раздел [Releases](https://github.com/Guavvva/Video-Audio-Converter/releases)
+1. Идите в раздел [Releases](https://github.com/LusterOK/Video-Audio-Converter/releases)
 2. Скачайте `Converter.exe`
 3. Запустите (устанавливать не нужно)
 
 ### Запустить из исходников
 ```bash
-git clone https://github.com/Guavvva/Video-Audio-Converter.git
+git clone https://github.com/LusterOK/Video-Audio-Converter.git
 cd Video-Audio-Converter
 pip install PySide6
 python main.py
@@ -105,14 +105,14 @@ A simple program for converting audio and video files. Powered by FFmpeg.
 
 ### Download ready-to-use EXE
 
-1. Go to [Releases](https://github.com/Guavvva/Video-Audio-Converter/releases)
+1. Go to [Releases](https://github.com/LusterOK/Video-Audio-Converter/releases)
 2. Download `Converter.exe`
 3. Run it (no installation needed)
 
 ### Run from source
 
 ```bash
-git clone https://github.com/Guavvva/Video-Audio-Converter.git
+git clone https://github.com/LusterOK/Video-Audio-Converter.git
 cd Video-Audio-Converter
 pip install PySide6
 python main.py

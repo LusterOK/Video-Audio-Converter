@@ -2,6 +2,7 @@
 # СЛОВАРЬ ПЕРЕВОДОВ
 # ═══════════════════════════════════════════════════════════════
 LANGUAGES = {
+    'theme_label': {'ru': "Тема оформления", 'en': "Appearance"},
     'window_title': {'ru': "Конвертатор", 'en': "Converter"},
     'input_file_label': {'ru': "Выберите файл:", 'en': "Select File:"},
     'output_file_label': {'ru': "Сохранить как:", 'en': "Save As:"},

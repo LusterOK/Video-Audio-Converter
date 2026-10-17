@@ -1,29 +1,29 @@
 # Changelog
 
-All notable changes for Video-Audio-Converter are documented here.
-
-## [1.0.0] — Initial release
+## [1.0.0] — First stable release
 
 ### Added
-- Redesigned the application interface as Studio Pro, with a cleaner layout and improved controls.
-- Added Light, Dark, and AMOLED appearance themes.
-- Added Russian and English interface localization.
-- Added audio and video conversion workflows powered by FFmpeg.
-- Added conversion progress reporting and cancellation controls.
-- Added clearer explanations for common FFmpeg and conversion errors.
-- Added an About dialog with project links and UI inspiration credit.
-- Added a Windows PyInstaller build script and application metadata.
+- Studio Pro desktop interface for audio and video conversion.
+- Light, Dark, and AMOLED themes.
+- Russian and English interface localization.
+- Audio and video conversion workflows powered by FFmpeg/FFprobe.
+- Conversion progress, FFmpeg output logs, and cancellation controls.
+- An About dialog with project links and attribution to the AmelliaBot interface inspiration.
+- Clearer explanations for common FFmpeg and conversion errors.
+- Windows one-file executable build script using PyInstaller.
+- Automated tests for conversion error explanations.
 
 ### Improved
-- Refined conversion worker behavior and shared process utilities.
-- Improved handling of conversion options, including lossless-oriented settings where supported by the selected format and codec.
-- Reduced the packaged Windows executable size by excluding unnecessary PySide6 modules.
-- Added build cleanup for temporary artifacts and caches.
+- Refined interface layout, spacing, controls, and visual consistency.
+- Improved worker and conversion utility organization.
+- Reduced packaged executable size by avoiding unnecessary Qt resource collection.
+- Added build cleanup for temporary build files and caches.
+- Expanded bilingual README with setup, usage, prerequisites, and build instructions.
 
 ### Fixed
-- Fixed multiple UI, theme-control, layout, and conversion-related issues found during testing.
-- Improved error handling for missing tools and failed conversion processes.
+- Various interface and conversion workflow bugs.
+- Improved handling and explanation of common conversion failures.
 
 ### Requirements and notes
-- FFmpeg and FFprobe must be installed and available on PATH for conversion.
-- The Windows executable was manually checked by the project maintainer. Automated checks cover Python syntax and error-explanation tests; a full Windows GUI/build test is environment-dependent.
+- FFmpeg and FFprobe must be installed separately and available on `PATH` for conversion.
+- The Windows executable should be validated on Windows before distribution; the GUI build is not verified by this release archive's Linux-side checks.

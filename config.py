@@ -36,6 +36,16 @@ LANGUAGES = {
     'audio_bitrate_label': {'ru': "Битрейт аудио:", 'en': "Audio bitrate:"},
     'save_log_dialog_title': {'ru': "Сохранить лог FFmpeg", 'en': "Save FFmpeg Log"},
     'log_file_filter': {'ru': "Текстовые файлы (*.txt);;Все файлы (*)", 'en': "Text files (*.txt);;All files (*)"},
+    'keep_all_tracks': {'ru': "Сохранить все дорожки", 'en': "Keep all tracks"},
+    'copy_metadata': {'ru': "Копировать метаданные", 'en': "Copy metadata"},
+    'progress_label': {'ru': "Прогресс:", 'en': "Progress:"},
+    'ready_status': {'ru': "Готово к работе", 'en': "Ready"},
+    'ffmpeg_args_label': {'ru': "Аргументы FFmpeg:", 'en': "FFmpeg arguments:"},
+    'format_manual_placeholder': {'ru': "Формат вручную (например, mkv)", 'en': "Format manually (e.g. mkv)"},
+    'log_placeholder': {'ru': "Вывод FFmpeg и диагностика конвертации", 'en': "FFmpeg output and conversion diagnostics"},
+    'input_missing_error': {'ru': "Входной файл не выбран или не существует.", 'en': "Input file is not selected or does not exist."},
+    'output_missing_error': {'ru': "Сначала выберите путь сохранения выходного файла.", 'en': "Please select an output file path first."},
+    'format_missing_error': {'ru': "Не указан формат выходного файла.", 'en': "Output format is not specified."},
 }
 
 VIDEO_FORMATS = ['mp4', 'avi', 'mkv', 'mov', 'webm']

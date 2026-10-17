@@ -410,9 +410,9 @@ class MainWindow(QMainWindow):
         video_settings_layout.addLayout(quality_layout)
         self.lossless_checkbox = QCheckBox()
         video_settings_layout.addWidget(self.lossless_checkbox)
-        self.keep_all_tracks_checkbox = QCheckBox("Сохранить все дорожки")
+        self.keep_all_tracks_checkbox = QCheckBox()
         video_settings_layout.addWidget(self.keep_all_tracks_checkbox)
-        self.copy_metadata_checkbox = QCheckBox("Копировать метаданные")
+        self.copy_metadata_checkbox = QCheckBox()
         self.copy_metadata_checkbox.setChecked(True)
         video_settings_layout.addWidget(self.copy_metadata_checkbox)
         codec_layout = QHBoxLayout()
@@ -455,12 +455,12 @@ class MainWindow(QMainWindow):
         audio_settings_layout.addLayout(bitrate_layout)
         self.audio_lossless_checkbox = QCheckBox()
         audio_settings_layout.addWidget(self.audio_lossless_checkbox)
-        self.audio_copy_metadata_checkbox = QCheckBox("Копировать метаданные")
+        self.audio_copy_metadata_checkbox = QCheckBox()
         self.audio_copy_metadata_checkbox.setChecked(True)
         audio_settings_layout.addWidget(self.audio_copy_metadata_checkbox)
         settings_layout.addWidget(self.audio_settings_group)
 
-        self.ffmpeg_args_label = QLabel("Аргументы FFmpeg:")
+        self.ffmpeg_args_label = QLabel()
         settings_layout.addWidget(self.ffmpeg_args_label)
         self.ffmpeg_args_edit = QTextEdit()
         self.ffmpeg_args_edit.setMaximumHeight(76)
@@ -474,12 +474,12 @@ class MainWindow(QMainWindow):
 
         # Persistent footer: progress, primary action and log.
         progress_row = QHBoxLayout()
-        self.progress_label = QLabel("Прогресс:")
+        self.progress_label = QLabel()
         self.progress_bar = QProgressBar()
         self.progress_bar.setRange(0, 100)
         progress_row.addWidget(self.progress_label)
         progress_row.addWidget(self.progress_bar, 1)
-        self.progress_details_label = QLabel("Готово к работе")
+        self.progress_details_label = QLabel()
         self.progress_details_label.setMinimumWidth(170)
         self.progress_details_label.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
         progress_row.addWidget(self.progress_details_label)
@@ -499,7 +499,7 @@ class MainWindow(QMainWindow):
         self.log_text = QTextEdit()
         self.log_text.setObjectName("logPanel")
         self.log_text.setReadOnly(True)
-        self.log_text.setPlaceholderText("FFmpeg output and conversion diagnostics")
+        self.log_text.setPlaceholderText("")
         self.log_text.setMinimumHeight(90)
         self.log_text.setMaximumHeight(155)
         self.main_layout.addWidget(self.log_text)
@@ -555,6 +555,14 @@ class MainWindow(QMainWindow):
             self.theme_combo.setCurrentIndex(selected_theme)
             self.theme_combo.blockSignals(False)
         self.input_file_label.setText(LANGUAGES['input_file_label'][lang])
+        self.keep_all_tracks_checkbox.setText(LANGUAGES['keep_all_tracks'][lang])
+        self.copy_metadata_checkbox.setText(LANGUAGES['copy_metadata'][lang])
+        self.audio_copy_metadata_checkbox.setText(LANGUAGES['copy_metadata'][lang])
+        self.ffmpeg_args_label.setText(LANGUAGES['ffmpeg_args_label'][lang])
+        self.progress_label.setText(LANGUAGES['progress_label'][lang])
+        self.log_text.setPlaceholderText(LANGUAGES['log_placeholder'][lang])
+        if self.conversion_started_at is None:
+            self.progress_details_label.setText(LANGUAGES['ready_status'][lang])
         self.output_file_label.setText(LANGUAGES['output_file_label'][lang])
         self.select_file_button.setText(LANGUAGES['select_file_button'][lang])
         self.save_as_button.setText(LANGUAGES['save_as_button'][lang])
@@ -562,8 +570,7 @@ class MainWindow(QMainWindow):
         self.clear_log_button.setText(LANGUAGES['clear_log'][lang])
         self.save_log_button.setText(LANGUAGES['save_log'][lang])
         self.format_label.setText(LANGUAGES['format_label'][lang])
-        self.progress_label.setText("Прогресс:" if lang == "ru" else "Progress:")
-        self.format_line_edit.setPlaceholderText("Format manually (e.g. mkv)" if lang == 'en' else "Формат вручную (например, mkv)")
+        self.format_line_edit.setPlaceholderText(LANGUAGES['format_manual_placeholder'][lang])
         self.quality_label.setText(LANGUAGES['quality_label'][lang])
         self.lossless_checkbox.setText(LANGUAGES['lossless_checkbox'][lang])
         self.audio_lossless_checkbox.setText(LANGUAGES['lossless_checkbox'][lang])
@@ -913,15 +920,15 @@ class MainWindow(QMainWindow):
         output_file = self.output_path_label.text().strip()
 
         if not os.path.exists(input_file):
-            QMessageBox.critical(self, "Ошибка", "Входной файл не выбран или не существует.")
+            QMessageBox.critical(self, LANGUAGES['conversion_error'][self.get_current_language()], LANGUAGES['input_missing_error'][self.get_current_language()])
             return
         if not output_file or output_file in {"Нет пути сохранения", "No output path"}:
-            QMessageBox.critical(self, "Ошибка", "Сначала выберите путь сохранения выходного файла.")
+            QMessageBox.critical(self, LANGUAGES['conversion_error'][self.get_current_language()], LANGUAGES['output_missing_error'][self.get_current_language()])
             return
 
         format_ = self.get_current_format().strip().lower().lstrip('.')
         if not format_:
-            QMessageBox.critical(self, "Ошибка", "Не указан формат выходного файла.")
+            QMessageBox.critical(self, LANGUAGES['conversion_error'][self.get_current_language()], LANGUAGES['format_missing_error'][self.get_current_language()])
             return
         output_root, output_ext = os.path.splitext(output_file)
         expected_ext = f".{format_}"
